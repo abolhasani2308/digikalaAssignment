@@ -2,7 +2,7 @@
   "primary": "#ED1B34",
   "secondary": "#EAEBEF",
   "card": "#FFFFFF",
-  "screen": "#F3F3F3",
+  "background": "#F3F3F3",
   "field": "#F3F3F3",
   "btn_disable": "#C1C1C6",
   "btn_secondary": "#EAEBEF",
