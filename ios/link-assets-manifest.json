@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/IRANSansMobile-Bold.ttf",
+      "sha1": "b443e2d1fea6137ff3cc363342e980be0c91ee99"
+    },
+    {
+      "path": "src/assets/fonts/IRANSansMobile-Light.ttf",
+      "sha1": "65b01a446223be9913ce9425cf062e61d7820298"
+    },
+    {
+      "path": "src/assets/fonts/IRANSansMobile-Medium.ttf",
+      "sha1": "0bc1dda1dd6f52b0dbe49f89d5f41b7e8e034a74"
+    },
+    {
+      "path": "src/assets/fonts/IRANSansMobile.ttf",
+      "sha1": "0deeaccf16de65ab0f2f6fe434f3e003c02606e9"
+    }
+  ]
+}
