@@ -1,11 +1,11 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export enum Screens {
-  Landing = 'Landing',
+  Products = 'Products',
 }
 
 export type StackParamList = {
-  Landing: undefined;
+  Products: undefined;
 };
 
 export type StackNavigationProps<T extends Screens> = NativeStackNavigationProp<
