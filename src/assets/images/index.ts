@@ -1,5 +1,5 @@
-// import icon from './images/icon.svg';
+import arrowRight from './arrowRight.svg';
 
 export default {
-  // icon,
+  arrowRight,
 };
