@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
-import SVG from '../../../assets/images/index';
+import SVG from '../../assets/images/index';
 import BaseHeader from '../base-header/BaseHeader.component';
 import styles from './HeaderWithBack.styles';
 import {HeaderWithBackProps} from './HeaderWithBack.types';

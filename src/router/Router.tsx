@@ -1,11 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import BaseHeader from '../components/header/base-header/BaseHeader.component';
+import BaseHeader from '../components/base-header/BaseHeader.component';
 import Landing from '../screens/products/Products.component';
 import {Screens, StackParamList} from './Stack.types';
 import Details from '../screens/details/Details.component';
-import HeaderWithBack from '../components/header/header-with-back/HeaderWithBack.component';
+import HeaderWithBack from '../components/header-with-back/HeaderWithBack.component';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 

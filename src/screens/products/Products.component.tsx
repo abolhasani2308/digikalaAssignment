@@ -1,5 +1,5 @@
 import {FlashList} from '@shopify/flash-list';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions, View} from 'react-native';
 import {useMutation} from 'react-query';
 import {createApi} from '../../api/ApiFactory';
@@ -10,6 +10,9 @@ import SearchInput from '../../components/search-input/SearchInput.component';
 import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
 import {setProducts} from '../../redux/features/products/ProductsSlice';
 import styles from './Products.styles';
+import ListLoading from '../../components/list-loading/ListLoading.component';
+import ListEmpty from '../../components/list-empty/ListEmpty.component';
+import ListError from '../../components/list-error/ListError.component';
 
 const data = [
   {
@@ -66,10 +69,13 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function Products(): React.JSX.Element {
   const products = useAppSelector(state => state.products.value);
+  const query = useAppSelector(state => state.query.value);
   const dispatch = useAppDispatch();
+  const [screenState, setScreenState] = useState('noraml');
 
   useEffect(() => {
-    getProductsMutation.mutate();
+    // getProductsMutation.mutate();
+    // dispatch(setProducts(data));
   }, []);
 
   const getProductsMutation = useMutation({
@@ -100,18 +106,38 @@ export default function Products(): React.JSX.Element {
     );
   }
 
+  function RenderDetector() {
+    switch (screenState) {
+      case 'loading':
+        return <ListLoading />;
+      case 'error':
+        return <ListError />;
+      case 'normal':
+        return (
+          <View style={styles.listWrapper}>
+            <FlashList
+              data={
+                !!query
+                  ? products?.filter(item => item?.name?.includes(query))
+                  : products
+              }
+              renderItem={renderItem}
+              keyExtractor={item => item?.id}
+              estimatedItemSize={windowWidth / 2 - 32 + 168}
+              numColumns={2}
+              ListEmptyComponent={<ListEmpty />}
+            />
+          </View>
+        );
+      default:
+        return <></>;
+    }
+  }
+
   return (
     <BaseScreen>
       <SearchInput />
-      <View style={styles.listWrapper}>
-        <FlashList
-          data={products}
-          renderItem={renderItem}
-          keyExtractor={item => item?.id}
-          estimatedItemSize={windowWidth / 2 - 32 + 168}
-          numColumns={2}
-        />
-      </View>
+      <RenderDetector />
     </BaseScreen>
   );
 }

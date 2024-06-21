@@ -3,5 +3,8 @@
   "toman": "تومان",
   "availableProducts": "کالاهای موجود",
   "productDetails": "مشخصات کالا",
-  "briefDescription": "معرفی اجمالی"
+  "briefDescription": "معرفی",
+  "noItems": "محصولی وجود ندارد.",
+  "error": "خطایی رخ داده است.",
+  "loading": "در حال بارگذاری ..."
 }

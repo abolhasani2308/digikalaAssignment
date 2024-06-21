@@ -8,5 +8,7 @@ export default StyleSheet.create({
   listWrapper: {
     flex: 1,
     alignSelf: 'stretch',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 });

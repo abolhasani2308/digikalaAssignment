@@ -2,6 +2,8 @@ import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {TextInput} from 'react-native';
+import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
+import {setQuery} from '../../redux/features/query/QuerySlice';
 import styles from './SearchInput.styles';
 import {SearchInputProps} from './SearchInput.types';
 
@@ -10,6 +12,13 @@ export default function SearchInput(
 ): React.JSX.Element {
   const {colors, fonts} = useTheme();
   const {t} = useTranslation();
+  const dispatch = useAppDispatch();
+  const query = useAppSelector(state => state.query.value);
+
+  function onChangeText(value: string) {
+    dispatch(setQuery(value));
+  }
+
   return (
     <TextInput
       style={[
@@ -22,6 +31,8 @@ export default function SearchInput(
       placeholder={t('search')}
       placeholderTextColor={'#8D9098'}
       returnKeyType={'search'}
+      value={query}
+      onChangeText={onChangeText}
       {...props}
     />
   );
