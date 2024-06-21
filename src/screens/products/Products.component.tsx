@@ -1,9 +1,11 @@
 import {FlashList} from '@shopify/flash-list';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Dimensions, View} from 'react-native';
 import BaseScreen from '../../components/base-screen/BaseScreen.component';
 import ProductItem from '../../components/product-item/ProductItem.component';
 import SearchInput from '../../components/search-input/SearchInput.component';
+import {setProducts} from '../../redux/features/products/ProductsSlice';
+import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
 import styles from './Products.styles';
 
 const data = [
@@ -60,6 +62,13 @@ const data = [
 const windowWidth = Dimensions.get('window').width;
 
 export default function Products(): React.JSX.Element {
+  const products = useAppSelector(state => state.products.value);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setProducts(data));
+  }, []);
+
   function renderItem({item, index}) {
     return (
       <ProductItem
@@ -70,9 +79,9 @@ export default function Products(): React.JSX.Element {
         description={item?.description}
         isEvenIndex={index % 2 === 0}
         isEndRow={
-          data?.length % 2 === 0
-            ? index === data?.length - 1 || index === data?.length - 2
-            : index === data?.length - 1
+          products?.length % 2 === 0
+            ? index === products?.length - 1 || index === products?.length - 2
+            : index === products?.length - 1
         }
       />
     );
@@ -83,7 +92,7 @@ export default function Products(): React.JSX.Element {
       <SearchInput />
       <View style={styles.listWrapper}>
         <FlashList
-          data={data}
+          data={products}
           renderItem={renderItem}
           keyExtractor={item => item?.id}
           estimatedItemSize={windowWidth / 2 - 32 + 168}
