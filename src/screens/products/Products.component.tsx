@@ -1,11 +1,14 @@
 import {FlashList} from '@shopify/flash-list';
 import React, {useEffect} from 'react';
 import {Dimensions, View} from 'react-native';
+import {useMutation} from 'react-query';
+import {createApi} from '../../api/ApiFactory';
+import {createAxios} from '../../api/AxiosFactory';
 import BaseScreen from '../../components/base-screen/BaseScreen.component';
 import ProductItem from '../../components/product-item/ProductItem.component';
 import SearchInput from '../../components/search-input/SearchInput.component';
-import {setProducts} from '../../redux/features/products/ProductsSlice';
 import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
+import {setProducts} from '../../redux/features/products/ProductsSlice';
 import styles from './Products.styles';
 
 const data = [
@@ -66,8 +69,18 @@ export default function Products(): React.JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setProducts(data));
+    getProductsMutation.mutate();
   }, []);
+
+  const getProductsMutation = useMutation({
+    mutationFn: async () => {
+      return createApi(createAxios())?.getProducts();
+    },
+    onSuccess: response => {
+      dispatch(setProducts(response));
+    },
+    onError: () => {},
+  });
 
   function renderItem({item, index}) {
     return (
