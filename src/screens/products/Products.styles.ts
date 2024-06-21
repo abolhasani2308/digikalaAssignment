@@ -5,4 +5,8 @@ export default StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
   },
+  listWrapper: {
+    flex: 1,
+    alignSelf: 'stretch',
+  },
 });
