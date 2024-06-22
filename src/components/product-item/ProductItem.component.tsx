@@ -70,7 +70,11 @@ export default function ProductItem(
           ellipsizeMode="tail"
         />
         <View style={styles.spacer} />
-        <ProductPrice value={data?.price} />
+        <ProductPrice
+          value={data?.price}
+          discountedPrice={data?.discountedPrice}
+          discountPercentage={data?.discountPercentage}
+        />
       </Animated.View>
     </TouchableOpacity>
   );

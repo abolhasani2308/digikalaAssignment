@@ -1,35 +1,47 @@
 import {useTheme} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import NumberFixer from '../../utils/NumberFixer';
+import DiscountPercentage from '../discount-percentage/DiscountPercentage.component';
+import DiscountedPrice from '../discounted-price/DiscountedPrice.component';
 import styles from './ProductPrice.styles';
 import {ProductPriceProps} from './ProductPrice.types';
 
 export default function ProductPrice(
   props: ProductPriceProps,
 ): React.JSX.Element {
-  const {value, containerStyle} = props;
+  const {
+    value,
+    discountedPrice,
+    discountPercentage,
+    containerStyle,
+    valueStyle,
+    unitStyle,
+    discountedPriceStyle,
+    discountPercentageStyle,
+  } = props;
   const {fonts} = useTheme();
   const {t} = useTranslation();
 
   return (
-    <Text
-      style={[
-        styles.container,
-        fonts.bold,
-        {color: '#0c0c0c'},
-        containerStyle,
-      ]}>
-      {NumberFixer(value)}{' '}
-      <Text
-        style={[
-          {
-            fontSize: 10,
-          },
-          fonts.bold,
-        ]}>
-        {t('toman')}
-      </Text>
-    </Text>
+    <View style={[styles.container, containerStyle]}>
+      <View style={styles.priceSection}>
+        <Text
+          style={[styles.value, fonts.medium, {color: '#0c0c0c'}, valueStyle]}>
+          {NumberFixer(value)}{' '}
+          <Text style={[styles.unit, fonts.regular, unitStyle]}>
+            {t('toman')}
+          </Text>
+        </Text>
+        <DiscountedPrice
+          value={discountedPrice}
+          containerStyle={discountedPriceStyle}
+        />
+      </View>
+      <DiscountPercentage
+        value={discountPercentage}
+        containerStyle={discountPercentageStyle}
+      />
+    </View>
   );
 }

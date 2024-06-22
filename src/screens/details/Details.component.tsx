@@ -23,7 +23,11 @@ export default function Details() {
           value={data?.name}
           containerStyle={[styles.name, fonts.medium]}
         />
-        <ProductPrice value={data?.price} containerStyle={styles.price} />
+        <ProductPrice
+          value={data?.price}
+          discountedPrice={data?.discountedPrice}
+          discountPercentage={data?.discountPercentage}
+        />
         <Divider />
         <ProductDescription context={data?.description} />
       </ScrollView>

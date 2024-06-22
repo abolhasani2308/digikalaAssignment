@@ -16,6 +16,18 @@
     {
       "path": "src/assets/fonts/IRANSansMobile.ttf",
       "sha1": "0deeaccf16de65ab0f2f6fe434f3e003c02606e9"
+    },
+    {
+      "path": "src/assets/fonts/IRANYekan-Bold.ttf",
+      "sha1": "914757d49a86bcdab2fa6c9a9a4814104bb719cf"
+    },
+    {
+      "path": "src/assets/fonts/IRANYekan-Medium.ttf",
+      "sha1": "3b73cbb966e2f150684f474ac49c51dc080a6b30"
+    },
+    {
+      "path": "src/assets/fonts/IRANYekan.ttf",
+      "sha1": "3a415764a722ead6c03b4e1894b7a9bfd5b83179"
     }
   ]
 }

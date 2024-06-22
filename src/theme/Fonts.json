@@ -1,14 +1,11 @@
 {
-  "light": {
-    "fontFamily": "IRANSansMobile-Light"
-  },
   "regular": {
-    "fontFamily": "IRANSansMobile"
+    "fontFamily": "IRANYekan"
   },
   "medium": {
-    "fontFamily": "IRANSansMobile-Medium"
+    "fontFamily": "IRANYekan-Medium"
   },
   "bold": {
-    "fontFamily": "IRANSansMobile-Bold"
+    "fontFamily": "IRANYekan-Bold"
   }
 }

@@ -17,8 +17,4 @@ export default StyleSheet.create({
     lineHeight: 36,
     marginTop: 12,
   },
-  price: {
-    fontSize: 20,
-    marginTop: 24,
-  },
 });

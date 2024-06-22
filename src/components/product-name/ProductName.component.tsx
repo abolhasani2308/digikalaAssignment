@@ -10,7 +10,12 @@ export default function ProductName(
   const {fonts} = useTheme();
   return (
     <Text
-      style={[styles.container, fonts.bold, {color: '#43474f'}, containerStyle]}
+      style={[
+        styles.container,
+        fonts.medium,
+        {color: '#43474e'},
+        containerStyle,
+      ]}
       {...props}>
       {value}
     </Text>

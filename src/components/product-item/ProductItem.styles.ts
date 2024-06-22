@@ -4,7 +4,7 @@ const windowWidth = Dimensions.get('window').width;
 
 export default StyleSheet.create({
   container: {
-    height: windowWidth / 2 - 32 + 176,
+    height: windowWidth / 2 - 32 + 200,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
