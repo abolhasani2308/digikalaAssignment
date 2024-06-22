@@ -17,16 +17,22 @@ export default function Details() {
 
   return (
     <BaseScreen>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <ProductImage containerStyle={styles.image} uri={data?.image} />
         <ProductName
           value={data?.name}
-          containerStyle={[styles.name, fonts.medium]}
+          containerStyle={[styles.name, fonts.medium, {color: '#222933'}]}
         />
         <ProductPrice
           value={data?.price}
           discountedPrice={data?.discountedPrice}
           discountPercentage={data?.discountPercentage}
+          containerStyle={styles.priceContainer}
+          valueStyle={styles.priceValue}
+          unitStyle={styles.priceUnit}
+          discountedPriceStyle={styles.discountedPrice}
+          discountPercentageStyle={styles.discountPercentage}
+          discountedPriceUnitStyle={styles.discountedUnit}
         />
         <Divider />
         <ProductDescription context={data?.description} />

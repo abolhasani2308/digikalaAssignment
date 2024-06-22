@@ -7,6 +7,7 @@ export type ProductPriceProps = {
   discountPercentage: number;
   valueStyle?: StyleProp<TextStyle>;
   unitStyle?: StyleProp<TextStyle>;
-  discountedPriceStyle?: StyleProp<ViewStyle>;
-  discountPercentageStyle?: StyleProp<ViewStyle>;
+  discountedPriceStyle?: StyleProp<TextStyle>;
+  discountPercentageStyle?: StyleProp<TextStyle>;
+  discountedPriceUnitStyle?: StyleProp<TextStyle>;
 };

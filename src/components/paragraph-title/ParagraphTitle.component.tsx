@@ -14,7 +14,7 @@ export default function ParagraphTitle(
       style={[
         styles.container,
         {
-          color: colors.text,
+          color: "#000000",
         },
         fonts.bold,
         containerStyle,

@@ -5,7 +5,6 @@ export default StyleSheet.create({
     fontSize: 10,
     textDecorationLine: 'line-through',
   },
-
   unit: {
     fontSize: 10,
     flexShrink: 1,

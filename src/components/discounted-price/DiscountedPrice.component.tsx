@@ -8,16 +8,19 @@ import {DiscountedPriceProps} from './DiscountedPrice.types';
 export default function DiscountedPrice(
   props: DiscountedPriceProps,
 ): React.JSX.Element {
-  const {value, containerStyle} = props;
+  const {value, containerStyle, valueStyle, unitStyle} = props;
   const {colors, fonts} = useTheme();
   const {t} = useTranslation();
 
   return (
     <View
-      style={{
-        flexDirection: 'row',
-      }}>
-      <Text style={[styles.unit, fonts.regular]}>{t('toman')}</Text>
+      style={[
+        {
+          flexDirection: 'row',
+        },
+        containerStyle,
+      ]}>
+      <Text style={[styles.unit, fonts.regular, unitStyle]}>{t('toman')}</Text>
       <Text
         style={[
           styles.container,
@@ -25,7 +28,7 @@ export default function DiscountedPrice(
             color: '#a2a3a8',
           },
           fonts.regular,
-          containerStyle,
+          valueStyle,
         ]}>
         {NumberFixer(value)}
       </Text>

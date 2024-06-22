@@ -5,7 +5,7 @@ export default StyleSheet.create({
     height: 1,
     alignSelf: 'stretch',
     marginHorizontal: 16,
-    marginTop: 24,
+    marginTop: 12,
     marginBottom: 12,
   },
 });

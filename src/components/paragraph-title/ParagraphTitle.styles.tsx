@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    fontSize: 16,
+    fontSize: 14,
     marginHorizontal: 16,
     textAlign: 'right',
   },

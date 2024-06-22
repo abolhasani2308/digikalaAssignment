@@ -19,6 +19,7 @@ export default function ProductPrice(
     unitStyle,
     discountedPriceStyle,
     discountPercentageStyle,
+    discountedPriceUnitStyle,
   } = props;
   const {fonts} = useTheme();
   const {t} = useTranslation();
@@ -35,12 +36,13 @@ export default function ProductPrice(
         </Text>
         <DiscountedPrice
           value={discountedPrice}
-          containerStyle={discountedPriceStyle}
+          valueStyle={discountedPriceStyle}
+          unitStyle={discountedPriceUnitStyle}
         />
       </View>
       <DiscountPercentage
         value={discountPercentage}
-        containerStyle={discountPercentageStyle}
+        valueStyle={discountPercentageStyle}
       />
     </View>
   );

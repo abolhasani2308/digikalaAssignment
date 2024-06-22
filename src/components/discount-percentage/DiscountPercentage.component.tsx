@@ -6,7 +6,7 @@ import {DiscountPercentageProps} from './DiscountPercentage.types';
 export default function DiscountPercentage(
   props: DiscountPercentageProps,
 ): React.JSX.Element {
-  const {value, containerStyle} = props;
+  const {value, containerStyle, valueStyle} = props;
   const {colors, fonts} = useTheme();
 
   return (
@@ -23,6 +23,7 @@ export default function DiscountPercentage(
             color: '#ffffff',
           },
           fonts.bold,
+          valueStyle,
         ]}>
         {value}%
       </Text>
