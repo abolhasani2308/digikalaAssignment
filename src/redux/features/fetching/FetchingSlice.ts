@@ -1,20 +1,20 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import type {RootState} from '../../Store';
 
-type FetchingModesState = {
+type FetchingState = {
   isLoading: boolean;
   isError: boolean;
   isRefreshing: boolean;
 };
 
-const initialState: FetchingModesState = {
+const initialState: FetchingState = {
   isLoading: true,
   isError: false,
   isRefreshing: false,
 };
 
-export const fetchingModesSlice = createSlice({
-  name: 'fetchingModes',
+export const fetchingSlice = createSlice({
+  name: 'fetching',
   initialState,
   reducers: {
     setIsLoading: (state, action: PayloadAction<boolean>) => {
@@ -30,14 +30,13 @@ export const fetchingModesSlice = createSlice({
 });
 
 export const {setIsLoading, setIsError, setIsRefreshing} =
-  fetchingModesSlice.actions;
+  fetchingSlice.actions;
 
-export const selectIsLoading = (state: RootState) =>
-  state.fetchingModes.isLoading;
+export const selectIsLoading = (state: RootState) => state.fetching.isLoading;
 
-export const selectIsError = (state: RootState) => state.fetchingModes.isError;
+export const selectIsError = (state: RootState) => state.fetching.isError;
 
 export const selectIsRefreshing = (state: RootState) =>
-  state.fetchingModes.isRefreshing;
+  state.fetching.isRefreshing;
 
-export default fetchingModesSlice.reducer;
+export default fetchingSlice.reducer;

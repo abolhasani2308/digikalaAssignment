@@ -8,17 +8,23 @@ import ProductName from '../product-name/ProductName.component';
 import ProductPrice from '../product-price/ProductPrice.component';
 import styles from './ProductItem.styles';
 import {ProductItemProps} from './ProductItem.types';
+import {useAppDispatch} from '../../redux/Hooks';
+import {setIsLoading} from '../../redux/features/fetching/FetchingSlice';
 
 export default function ProductItem(
   props: ProductItemProps,
 ): React.JSX.Element {
   const {data, animationId, isEvenIndex, isEndRow, containerStyle} = props;
+  const dispatch = useAppDispatch();
   const {colors} = useTheme();
   const navigation = useNavigation();
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   function pressHandler() {
-    navigation.navigate(Screens.Details, data);
+    dispatch(setIsLoading(true));
+    navigation.navigate(Screens.Details, {
+      id: data?.id,
+    });
   }
 
   useEffect(() => {

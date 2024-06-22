@@ -1,13 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit';
-import fetchingModesReducer from './features/fetching/FetchingModesSlice';
+import fetchingReducer from './features/fetching/FetchingSlice';
 import productsReducer from './features/products/ProductsSlice';
 import queryReducer from './features/query/QuerySlice';
+import detailsReducer from './features/details/DetailsSlice';
 
 export const store = configureStore({
   reducer: {
     products: productsReducer,
+    details: detailsReducer,
     query: queryReducer,
-    fetchingModes: fetchingModesReducer,
+    fetching: fetchingReducer,
   },
 });
 

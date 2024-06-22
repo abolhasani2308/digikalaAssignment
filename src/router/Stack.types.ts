@@ -9,12 +9,6 @@ export type RootStackParamList = {
   Products: undefined;
   Details: {
     id: string;
-    name: string;
-    image: string;
-    price: number;
-    discountedPrice: number;
-    discountPercentage: number;
-    description: string;
   };
 };
 

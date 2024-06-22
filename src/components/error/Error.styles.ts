@@ -10,7 +10,9 @@ export default StyleSheet.create({
   animation: {
     height: 80,
     width: 80,
-    marginBottom: 24,
   },
-  text: {fontSize: 16},
+  error: {
+    fontSize: 14,
+    marginTop: 12,
+  },
 });

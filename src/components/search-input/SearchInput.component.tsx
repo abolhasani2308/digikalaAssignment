@@ -1,3 +1,11 @@
+/**
+ * It is advisable to conduct searches on the server side. However, due to the limitations of the jsonplaceholder service
+ * in terms of search capabilities, the search operation has been carried out on the client side.
+ * This is not considered a best practice, and it would have been more effective to create a separate endpoint for searches and
+ * send a query to the server using a query string. The server would then perform the search operation on the product names and
+ * send the results to the client for updating.
+ */
+
 import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';

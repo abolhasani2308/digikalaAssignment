@@ -20,12 +20,16 @@ const baseurl =
 export const createApi = (axios: AxiosInstance) => {
   return format({
     async getProducts() {
-      const res = await axios.get(`${baseurl}/db`);
+      const res = await axios.get(`${baseurl}/products`);
+      return handle<string>(res);
+    },
+    async getDetails(id) {
+      const res = await axios.get(`${baseurl}/details/${id}`);
       return handle<string>(res);
     },
   });
 };
 
 function handle<T>(res: AxiosResponse<Res<T>>) {
-  return res?.data?.data;
+  return res?.data;
 }
