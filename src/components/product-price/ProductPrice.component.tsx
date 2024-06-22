@@ -21,14 +21,19 @@ export default function ProductPrice(
     discountPercentageStyle,
     discountedPriceUnitStyle,
   } = props;
-  const {fonts} = useTheme();
+  const {colors, fonts} = useTheme();
   const {t} = useTranslation();
 
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.priceSection}>
         <Text
-          style={[styles.value, fonts.medium, {color: '#0c0c0c'}, valueStyle]}>
+          style={[
+            styles.value,
+            fonts.medium,
+            {color: colors.text},
+            valueStyle,
+          ]}>
           {NumberFixer(value)}{' '}
           <Text style={[styles.unit, fonts.regular, unitStyle]}>
             {t('toman')}

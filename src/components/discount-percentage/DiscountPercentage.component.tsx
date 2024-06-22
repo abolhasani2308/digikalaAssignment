@@ -20,7 +20,7 @@ export default function DiscountPercentage(
         style={[
           styles.value,
           {
-            color: '#ffffff',
+            color: colors.background,
           },
           fonts.bold,
           valueStyle,

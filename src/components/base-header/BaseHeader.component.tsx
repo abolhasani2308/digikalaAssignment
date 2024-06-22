@@ -15,7 +15,7 @@ export default function BaseHeader(
       style={[
         styles.container,
         {
-          backgroundColor: '#fbd5d3',
+          backgroundColor: colors.primaryLight,
         },
         containerStyle,
       ]}>
@@ -23,7 +23,6 @@ export default function BaseHeader(
         style={[
           styles.title,
           {
-            // color: '#d05766',
             color: colors.primary,
           },
           fonts.bold,

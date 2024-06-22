@@ -14,7 +14,7 @@ export default function ParagraphContext(
       style={[
         styles.container,
         {
-          color: '#222931',
+          color: colors.text2,
         },
         fonts.regular,
         containerStyle,

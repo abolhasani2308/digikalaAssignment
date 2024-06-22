@@ -1,8 +1,13 @@
 {
   "primary": "#ED1B34",
+  "primaryLight": "#fbd5d3",
   "background": "#FFFFFF",
   "card": "#F3F3F3",
-  "text": "#0B0E11",
+  "text": "#0c0c0c",
+  "text2": "#222933",
+  "text3": "#43474e",
+  "text4": "#8D9098",
+  "text5": "#a2a3a8",
   "border": "#efefef",
   "notification": "#D75263"
 }

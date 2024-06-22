@@ -25,7 +25,7 @@ export default function DiscountedPrice(
         style={[
           styles.container,
           {
-            color: '#a2a3a8',
+            color: colors.text5,
           },
           fonts.regular,
           valueStyle,

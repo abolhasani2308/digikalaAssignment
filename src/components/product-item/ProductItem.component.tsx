@@ -2,6 +2,7 @@ import {useNavigation, useTheme} from '@react-navigation/native';
 import React, {useEffect, useRef} from 'react';
 import {Animated, TouchableOpacity, View} from 'react-native';
 import {Screens} from '../../router/Stack.types';
+import FadeInAnimation from '../../utils/FadeInAnimation';
 import ProductImage from '../product-image/ProductImage.component';
 import ProductName from '../product-name/ProductName.component';
 import ProductPrice from '../product-price/ProductPrice.component';
@@ -20,26 +21,8 @@ export default function ProductItem(
     navigation.navigate(Screens.Details, data);
   }
 
-  function fadeIn() {
-    return Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 800,
-      useNativeDriver: true,
-    });
-  }
-  function fadeOut() {
-    return Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 0,
-      useNativeDriver: true,
-    });
-  }
-
   useEffect(() => {
-    fadeOut().start();
-    setTimeout(() => {
-      fadeIn().start();
-    }, 1);
+    FadeInAnimation(fadeAnim);
   }, [animationId]);
 
   return (

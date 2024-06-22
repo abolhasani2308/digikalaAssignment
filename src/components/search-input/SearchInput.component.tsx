@@ -29,7 +29,7 @@ export default function SearchInput(
         },
       ]}
       placeholder={t('search')}
-      placeholderTextColor={'#8D9098'}
+      placeholderTextColor={colors.text4}
       returnKeyType={'search'}
       value={query}
       onChangeText={onChangeText}

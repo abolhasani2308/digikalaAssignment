@@ -7,13 +7,13 @@ export default function ProductName(
   props: ProductNameProps,
 ): React.JSX.Element {
   const {value, containerStyle} = props;
-  const {fonts} = useTheme();
+  const {colors, fonts} = useTheme();
   return (
     <Text
       style={[
         styles.container,
         fonts.medium,
-        {color: '#43474e'},
+        {color: colors.text3},
         containerStyle,
       ]}
       {...props}>
