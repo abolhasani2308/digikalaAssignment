@@ -1,5 +1,5 @@
 export default function NumberDigitsConverter(number: number | string) {
-  const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+  const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
-  return number?.toString()?.replace(/\d/g, x => farsiDigits[x]);
+  return number?.toString()?.replace(/\d/g, x => persianDigits[x]);
 }

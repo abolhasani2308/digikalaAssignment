@@ -2,16 +2,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import BaseHeader from '../components/base-header/BaseHeader.component';
-import Landing from '../screens/products/Products.component';
-import {Screens, StackParamList} from './Stack.types';
+import Products from '../screens/products/Products.component';
+import {Screens, RootStackParamList} from './Stack.types';
 import Details from '../screens/details/Details.component';
 import HeaderWithBack from '../components/header-with-back/HeaderWithBack.component';
 
-const Stack = createNativeStackNavigator<StackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigation = () => {
   const {t} = useTranslation();
- 
+
   return (
     <Stack.Navigator
       initialRouteName={Screens.Products}
@@ -20,7 +20,7 @@ const AppNavigation = () => {
       }}>
       <Stack.Screen
         name={Screens.Products}
-        component={Landing}
+        component={Products}
         options={{
           header: () => <BaseHeader title={t('availableProducts')} />,
         }}

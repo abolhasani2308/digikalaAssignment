@@ -11,6 +11,7 @@ import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
 import {setIsRefreshing} from '../../redux/features/fetching/FetchingModesSlice';
 import useProductsFetcher from '../../utils/ProductsFetcher';
 import styles from './Products.styles';
+import {Product} from './Products.types';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -27,7 +28,7 @@ export default function Products(): React.JSX.Element {
 
   useEffect(fetchProducts, []);
 
-  function renderItem({item, index}) {
+  function renderItem({item, index}: {item: Product; index: number}) {
     return (
       <ProductItem
         data={item}

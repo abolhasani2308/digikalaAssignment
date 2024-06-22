@@ -6,4 +6,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'stretch',
   },
+  title: {
+    marginLeft: 56,
+  },
 });

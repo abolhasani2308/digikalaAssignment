@@ -5,7 +5,7 @@ export enum Screens {
   Details = 'Details',
 }
 
-export type StackParamList = {
+export type RootStackParamList = {
   Products: undefined;
   Details: {
     id: string;
@@ -19,6 +19,6 @@ export type StackParamList = {
 };
 
 export type StackNavigationProps<T extends Screens> = NativeStackNavigationProp<
-  StackParamList,
+  RootStackParamList,
   T
 >;

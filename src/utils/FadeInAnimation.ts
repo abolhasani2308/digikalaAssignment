@@ -1,6 +1,6 @@
 import {Animated} from 'react-native';
 
-export default function FadeInAnimation(fadeAnim: any) {
+export default function FadeInAnimation(fadeAnim: any): void {
   function fadeIn() {
     return Animated.timing(fadeAnim, {
       toValue: 1,

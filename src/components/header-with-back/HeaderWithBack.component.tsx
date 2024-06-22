@@ -10,11 +10,7 @@ export default function HeaderWithBack(
 ): React.JSX.Element {
   const navigation = useNavigation();
   return (
-    <BaseHeader
-      titleStyle={{
-        marginLeft: 56,
-      }}
-      {...props}>
+    <BaseHeader titleStyle={styles.title} {...props}>
       <TouchableOpacity
         style={styles.button}
         onPress={() => {

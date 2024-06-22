@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useMutation} from 'react-query';
 import {createApi} from '../api/ApiFactory';
 import {createAxios} from '../api/AxiosFactory';
@@ -9,6 +10,18 @@ import {
 } from '../redux/features/fetching/FetchingModesSlice';
 import {setProducts} from '../redux/features/products/ProductsSlice';
 
+type Product = {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  discountedPrice: number;
+  discountPercentage: number;
+  description: string;
+};
+
+type ProductsList = Product[];
+
 export default function useProductsFetcher() {
   const dispatch = useAppDispatch();
 
@@ -16,7 +29,7 @@ export default function useProductsFetcher() {
     mutationFn: async () => {
       return createApi(createAxios())?.getProducts();
     },
-    onSuccess: response => {
+    onSuccess: (response: ProductsList) => {
       dispatch(setProducts(response));
       dispatch(setIsLoading(false));
       dispatch(setIsRefreshing(false));
@@ -25,8 +38,8 @@ export default function useProductsFetcher() {
     onError: () => {
       dispatch(setProducts([]));
       dispatch(setIsLoading(false));
-      dispatch(setIsError(true));
       dispatch(setIsRefreshing(false));
+      dispatch(setIsError(true));
     },
   });
 
