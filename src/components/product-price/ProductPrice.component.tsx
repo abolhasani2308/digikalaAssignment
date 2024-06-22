@@ -34,13 +34,13 @@ export default function ProductPrice(
             {color: colors.text},
             valueStyle,
           ]}>
-          {NumberFixer(value)}{' '}
+          {NumberFixer(discountedPrice)}{' '}
           <Text style={[styles.unit, fonts.regular, unitStyle]}>
             {t('toman')}
           </Text>
         </Text>
         <DiscountedPrice
-          value={discountedPrice}
+          value={value}
           valueStyle={discountedPriceStyle}
           unitStyle={discountedPriceUnitStyle}
         />
