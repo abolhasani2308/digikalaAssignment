@@ -4,7 +4,5 @@
   "availableProducts": "کالاهای موجود",
   "productDetails": "مشخصات کالا",
   "briefDescription": "معرفی",
-  "noItems": "محصولی وجود ندارد.",
-  "error": "خطایی رخ داده است.",
-  "loading": "در حال بارگذاری ..."
+  "error": "خطایی رخ داده است."
 }

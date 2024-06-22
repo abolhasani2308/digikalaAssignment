@@ -8,9 +8,13 @@ import ListLoading from '../../components/list-loading/ListLoading.component';
 import ProductItem from '../../components/product-item/ProductItem.component';
 import SearchInput from '../../components/search-input/SearchInput.component';
 import {useAppDispatch, useAppSelector} from '../../redux/Hooks';
-import {setIsRefreshing} from '../../redux/features/fetching/FetchingModesSlice';
+import {
+  setIsLoading,
+  setIsRefreshing,
+} from '../../redux/features/fetching/FetchingModesSlice';
 import useProductsFetcher from '../../utils/ProductsFetcher';
 import styles from './Products.styles';
+import {setProducts} from '../../redux/features/products/ProductsSlice';
 
 const data = [
   {
@@ -78,6 +82,11 @@ export default function Products(): React.JSX.Element {
 
   useEffect(fetchProducts, []);
 
+  // useEffect(() => {
+  //   dispatch(setProducts(data));
+  //   dispatch(setIsLoading(false));
+  // }, []);
+
   function renderItem({item, index}) {
     return (
       <ProductItem
@@ -102,29 +111,29 @@ export default function Products(): React.JSX.Element {
   }
 
   function renderDetector() {
-    if (isLoading) {
-      return <ListLoading />;
-    } else if (isError) {
-      return <ListError />;
-    } else {
-      return (
-        <View style={styles.listWrapper}>
-          <FlashList
-            data={
-              !!query
-                ? products?.filter(item => item?.name?.includes(query))
-                : products
-            }
-            renderItem={renderItem}
-            keyExtractor={item => item?.id}
-            estimatedItemSize={windowWidth / 2 - 32 + 168}
-            numColumns={2}
-            ListEmptyComponent={<ListEmpty />}
-            onRefresh={refreshHandler}
-            refreshing={isRefreshing}
-          />
-        </View>
-      );
+    switch (isLoading) {
+      case true:
+        return <ListLoading />;
+
+      default:
+        return (
+          <View style={styles.listWrapper}>
+            <FlashList
+              data={
+                !!query
+                  ? products?.filter(item => item?.name?.includes(query))
+                  : products
+              }
+              renderItem={renderItem}
+              keyExtractor={item => item?.id}
+              estimatedItemSize={windowWidth / 2 - 32 + 168}
+              numColumns={2}
+              ListEmptyComponent={isError ? <ListError /> : <ListEmpty />}
+              onRefresh={refreshHandler}
+              refreshing={isRefreshing}
+            />
+          </View>
+        );
     }
   }
 

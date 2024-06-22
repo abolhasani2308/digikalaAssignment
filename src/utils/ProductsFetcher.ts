@@ -22,6 +22,7 @@ export default function useProductsFetcher() {
       dispatch(setIsRefreshing(false));
     },
     onError: () => {
+      dispatch(setProducts([]));
       dispatch(setIsLoading(false));
       dispatch(setIsError(true));
       dispatch(setIsRefreshing(false));
