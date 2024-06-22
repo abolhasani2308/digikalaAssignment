@@ -2,6 +2,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
 import {I18nextProvider} from 'react-i18next';
 import 'react-native-gesture-handler';
+import 'react-native-reanimated';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {Provider} from 'react-redux';
 import i18n from '../i18n/I18n';

@@ -10,8 +10,15 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingTop: 48,
     paddingBottom: 24,
+    borderBottomWidth: 1,
   },
   spacer: {
     flex: 1,
+  },
+  animatedView: {
+    flex: 1,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

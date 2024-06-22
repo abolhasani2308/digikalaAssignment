@@ -6,7 +6,7 @@ export default StyleSheet.create({
     textAlign: 'right',
     alignSelf: 'stretch',
     marginHorizontal: 16,
-    marginVertical: 8,
+    marginVertical: 10,
     borderRadius: 8,
     paddingHorizontal: 16,
   },

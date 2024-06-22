@@ -1,5 +1,6 @@
 import {useNavigation, useTheme} from '@react-navigation/native';
-import {TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {Animated, TouchableOpacity, View} from 'react-native';
 import {Screens} from '../../router/Stack.types';
 import ProductImage from '../product-image/ProductImage.component';
 import ProductName from '../product-name/ProductName.component';
@@ -10,44 +11,67 @@ import {ProductItemProps} from './ProductItem.types';
 export default function ProductItem(
   props: ProductItemProps,
 ): React.JSX.Element {
-  const {
-    id,
-    name,
-    image,
-    price,
-    description,
-    isEvenIndex,
-    isEndRow,
-    containerStyle,
-  } = props;
+  const {data, animationId, isEvenIndex, isEndRow, containerStyle} = props;
   const {colors} = useTheme();
   const navigation = useNavigation();
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  function pressHandler() {
+    navigation.navigate(Screens.Details, data);
+  }
+
+  function fadeIn() {
+    return Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 800,
+      useNativeDriver: true,
+    });
+  }
+  function fadeOut() {
+    return Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 0,
+      useNativeDriver: true,
+    });
+  }
+
+  useEffect(() => {
+    fadeOut().start();
+    setTimeout(() => {
+      fadeIn().start();
+    }, 1);
+  }, [animationId]);
 
   return (
     <TouchableOpacity
+      key={data?.id}
       activeOpacity={1}
-      onPress={() => {
-        navigation.navigate(Screens.Details, {
-          id: id,
-          name: name,
-          image: image,
-          price: price,
-          description: description,
-        });
-      }}
+      onPress={pressHandler}
       style={[
         styles.container,
         {
           borderColor: colors.border,
-          borderBottomWidth: isEndRow ? 0 : 1,
           borderRightWidth: isEvenIndex ? 1 : 0,
+          marginBottom: isEndRow ? 10 : 0,
         },
         containerStyle,
       ]}>
-      <ProductImage uri={image} />
-      <ProductName value={name} numberOfLines={2} ellipsizeMode="tail" />
-      <View style={styles.spacer} />
-      <ProductPrice value={price} />
+      <Animated.View
+        style={[
+          styles.animatedView,
+          {
+            opacity: fadeAnim,
+          },
+        ]}>
+        <ProductImage uri={data?.image} />
+        <ProductName
+          value={data?.name}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+        />
+        <View style={styles.spacer} />
+        <ProductPrice value={data?.price} />
+      </Animated.View>
     </TouchableOpacity>
   );
 }
