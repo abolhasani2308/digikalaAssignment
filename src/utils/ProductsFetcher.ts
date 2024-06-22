@@ -20,6 +20,7 @@ export default function useProductsFetcher() {
       dispatch(setProducts(response));
       dispatch(setIsLoading(false));
       dispatch(setIsRefreshing(false));
+      dispatch(setIsError(false));
     },
     onError: () => {
       dispatch(setProducts([]));

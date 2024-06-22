@@ -58,7 +58,9 @@ export default function Products(): React.JSX.Element {
             <FlashList
               data={
                 !!query
-                  ? products?.filter(item => item?.name?.includes(query))
+                  ? products?.filter(item =>
+                      item?.name?.toLowerCase()?.includes(query?.toLowerCase()),
+                    )
                   : products
               }
               renderItem={renderItem}
